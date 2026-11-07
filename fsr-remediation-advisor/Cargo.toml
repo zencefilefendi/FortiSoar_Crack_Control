@@ -1,0 +1,21 @@
+[package]
+name = "fsr-remediation-advisor"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR Forensics & Incident Response Architecture Team"]
+description = "Zero-external-crate DFIR remediation, compromised SOAR vault credential rotation inventory, live non-destructive network containment generator, Playbook migration sanitizer, and air-gapped auditor self-integrity armor."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-remediation-advisor"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_remediation_advisor"
+path = "src/lib.rs"
+
+[dependencies]
+fsr-deep-audit = { path = ".." }
+fsr-net-crypto-audit = { path = "../fsr-net-crypto-audit" }
+fsr-clone-cluster-audit = { path = "../fsr-clone-cluster-audit" }
+fsr-supplychain-backdoor-audit = { path = "../fsr-supplychain-backdoor-audit" }

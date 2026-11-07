@@ -1,0 +1,20 @@
+[package]
+name = "fsr-clone-cluster-audit"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR & FortiGate VM Forensics & Distributed Systems Reverse Engineering Team"]
+description = "Zero-external-crate Golden Image clone detector, PostgreSQL pg_control/EXT4/XFS birthmark extractor, wtmp/RTC time-freeze auditor, FGVM license analyzer, O(N) multi-node cluster correlator, and active TLS/HTTP fingerprinter."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-clone-cluster-audit"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_clone_cluster_audit"
+path = "src/lib.rs"
+
+[dependencies]
+# Zero external crates: uses only workspace-internal Phase 1 & Phase 2 modules + Rust `std`.
+fsr-deep-audit = { path = ".." }
+fsr-net-crypto-audit = { path = "../fsr-net-crypto-audit" }

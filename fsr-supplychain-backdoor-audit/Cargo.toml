@@ -1,0 +1,21 @@
+[package]
+name = "fsr-supplychain-backdoor-audit"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR & FortiGate Supply-Chain Security & Forensics Team"]
+description = "Zero-external-crate supply-chain backdoor hunter for FortiSOAR & FortiGate OVAs: SOAR connector/Playbook AST-token skimmer scanner, Nginx/Django auth bypass analyzer, PostgreSQL persistence auditor, systemd/PAM/SSH implant detector, and FortiOS rogue admin inspector."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-supplychain-backdoor-audit"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_supplychain_backdoor_audit"
+path = "src/lib.rs"
+
+[dependencies]
+# Zero external crates: relies strictly on workspace-internal Phase 1-3 libraries + Rust `std`.
+fsr-deep-audit = { path = ".." }
+fsr-net-crypto-audit = { path = "../fsr-net-crypto-audit" }
+fsr-clone-cluster-audit = { path = "../fsr-clone-cluster-audit" }

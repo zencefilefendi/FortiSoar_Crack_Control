@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "fortisoar-7.4.x",
+  "version_family": "7.4",
+  "reference_release": "7.4.3-4012",
+  "description": "FortiSOAR 7.4.x (RHEL/Rocky 8/9 x86_64) cyops-auth structural invariant baseline manifest",
+  "server_allowed_files": [
+    "__init__.py",
+    "csdassrv.py"
+  ],
+  "entrypoint_allowlists": {
+    "server/csdassrv.py": [
+      "os",
+      "sys",
+      "ssl",
+      "tornado",
+      "handlers",
+      "handlerworkers",
+      "utilities",
+      "log",
+      "csparser",
+      "dashmac",
+      "enums",
+      "exceptions",
+      "mfa",
+      "validationutils",
+      "sql"
+    ],
+    "utilities/licensemanager.py": [
+      "sys",
+      "os",
+      "getopt",
+      "argparse",
+      "json",
+      "logging",
+      "traceback",
+      "utilities",
+      "handlerworkers",
+      "handlers",
+      "log",
+      "exceptions",
+      "enums",
+      "csparser"
+    ],
+    "defaultappliance.py": [
+      "sys",
+      "os",
+      "getopt",
+      "argparse",
+      "json",
+      "logging",
+      "traceback",
+      "utilities",
+      "handlerworkers",
+      "handlers",
+      "log",
+      "exceptions",
+      "enums",
+      "csparser"
+    ],
+    "utilities/dasmigrate.py": [
+      "os",
+      "sys",
+      "shutil",
+      "psycopg2",
+      "configparser",
+      "utilities",
+      "log",
+      "exceptions",
+      "sql"
+    ],
+    "utilities/usermanager.py": [
+      "os",
+      "sys",
+      "getopt",
+      "psycopg2",
+      "configparser",
+      "utilities",
+      "log",
+      "exceptions",
+      "validationutils"
+    ],
+    "validationutils/custompwdvalidator.py": [
+      "re",
+      "math",
+      "collections",
+      "datetime",
+      "dateutil",
+      "validationutils",
+      "exceptions",
+      "log",
+      "utilities"
+    ],
+    "utilities/ha/cmd_executor.py": [
+      "os",
+      "sys",
+      "subprocess",
+      "utilities",
+      "exceptions",
+      "log"
+    ],
+    "utilities/ha/manager.py": [
+      "os",
+      "sys",
+      "getopt",
+      "utilities",
+      "exceptions",
+      "log"
+    ],
+    "utilities/ha/listener.py": [
+      "os",
+      "sys",
+      "socket",
+      "json",
+      "utilities",
+      "exceptions",
+      "log"
+    ]
+  },
+  "docstring_only_init_files": [
+    "server/__init__.py",
+    "handlers/__init__.py",
+    "handlerworkers/__init__.py",
+    "utilities/__init__.py",
+    "utilities/license/__init__.py",
+    "utilities/ha/__init__.py",
+    "dashmac/__init__.py",
+    "csparser/__init__.py",
+    "enums/__init__.py",
+    "exceptions/__init__.py",
+    "log/__init__.py",
+    "mfa/__init__.py",
+    "validationutils/__init__.py",
+    "sql/engine/__init__.py"
+  ],
+  "required_cython_so_modules": [
+    "handlerworkers/license.so",
+    "handlerworkers/fdnclient.so",
+    "handlers/licensehandler.so",
+    "utilities/license/entitlements.so",
+    "utilities/license/helper.so",
+    "dashmac/hmacauthorizer.so"
+  ]
+}

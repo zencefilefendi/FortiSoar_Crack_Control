@@ -1,0 +1,19 @@
+[package]
+name = "fsr-net-crypto-audit"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR & FortiGate Forensics Team"]
+description = "Zero-external-crate network redirection, Netfilter/eBPF socket hook, X.509 CA trust store, libssl verification bypass, active FDN TLS/DNS split-horizon, and FortiGate FDS emulator forensic auditor."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-net-crypto-audit"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_net_crypto_audit"
+path = "src/lib.rs"
+
+[dependencies]
+# Shares only our local Phase-1 zero-dependency core (`crypto`, `schema`, raw x86_64 syscalls, ELF64 primitives).
+fsr-deep-audit = { path = ".." }

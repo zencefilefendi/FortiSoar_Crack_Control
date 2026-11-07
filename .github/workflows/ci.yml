@@ -1,0 +1,39 @@
+name: CI — Forensic Workspace Build, Clippy & Test Suite
+
+on:
+  push:
+    branches: ["main", "master"]
+    tags: ["v*"]
+  pull_request:
+    branches: ["main", "master"]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  forensic-suite-ci:
+    name: Rust 2021 Zero-Dependency Workspace Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install stable Rust toolchain & clippy
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Verify version-tagged baseline manifests exist
+        run: |
+          test -f baselines/fortisoar-7.6.x.json
+          test -f baselines/fortisoar-7.4.x.json
+
+      - name: Run Clippy lints across all workspace targets
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Build release binaries
+        run: cargo build --workspace --release
+
+      - name: Execute full unit & integration test suite
+        run: cargo test --workspace

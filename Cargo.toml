@@ -1,0 +1,39 @@
+[workspace]
+members = [
+    ".",
+    "fsr-net-crypto-audit",
+    "fsr-clone-cluster-audit",
+    "fsr-supplychain-backdoor-audit",
+    "fsr-remediation-advisor",
+    "fsr-ova-attribution",
+    "fsr-forensic-verdict",
+    "fsr-qa-fixture-harness",
+]
+resolver = "2"
+
+[package]
+name = "fsr-deep-audit"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR Forensics & Linux Reverse Engineering Team"]
+description = "Zero-dependency Linux x86_64 forensic anti-tampering, raw-syscall hardware spoof, ELF64 VMA diff, PEP 552 bytecode, and RPM database integrity auditor for FortiSOAR appliances."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-deep-audit"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_deep_audit"
+path = "src/lib.rs"
+
+[dependencies]
+# Intentionally empty: zero external crates for maximum air-gapped forensic trust
+# and supply-chain independence on RHEL/Rocky Linux 8/9 (x86_64) appliances.
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = false
+panic = "unwind"

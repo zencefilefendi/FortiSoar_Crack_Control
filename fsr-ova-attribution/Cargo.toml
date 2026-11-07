@@ -1,0 +1,22 @@
+[package]
+name = "fsr-ova-attribution"
+version = "1.0.0"
+edition = "2021"
+authors = ["FortiSOAR Forensics & Threat Attribution Team"]
+description = "Zero-dependency userspace POSIX ustar OVA/OVF inspector, VMDK/QCOW2 sliding-window binary signature carver, and Crack-Kit DNA threat attribution engine."
+license = "Apache-2.0"
+
+[[bin]]
+name = "fsr-ova-attribution"
+path = "src/main.rs"
+
+[lib]
+name = "fsr_ova_attribution"
+path = "src/lib.rs"
+
+[dependencies]
+# Zero external crates — strictly internal workspace crates and Rust `std`.
+fsr-deep-audit = { path = ".." }
+fsr-net-crypto-audit = { path = "../fsr-net-crypto-audit" }
+fsr-clone-cluster-audit = { path = "../fsr-clone-cluster-audit" }
+fsr-supplychain-backdoor-audit = { path = "../fsr-supplychain-backdoor-audit" }
